@@ -1,0 +1,28 @@
+id: f3028509-4bd4-4bc4-9ced-013044aac2c4
+timestamp: 2023-04-28T05:26:28Z
+username: guest
+source: TAP-GUI
+accelerator:
+  name: where-for-dinner
+  source:
+    image: kapplegate.azurecr.io/tap@sha256:e81f9a670e369f3dcd849a7ec1f211cb8313de079f6e07de74faad478936f43d
+fragments:
+  - name: tap-workload
+    source:
+      image: kapplegate.azurecr.io/tap@sha256:dbf0dedb6848ad8a7704c1c19465a1ddae9039b0e63c1dd0df3e2ed9cbda6093
+  - name: build-wrapper-maven
+    source:
+      image: kapplegate.azurecr.io/tap@sha256:195a3ca6585fa91c41292584a19c2807c72ecdf986ce860a7147451e89d467d4
+options:
+  cacheType: inmemCache
+  dbType: h2
+  dynamicMsgBroker: false
+  enableCloudEvents: false
+  enableSecurity: false
+  includeBuildToolWrapper: true
+  msgBrokerType: rabbitmq
+  msgbrokerName: msgbroker-where-for-dinner
+  numRabbitMQClusterNodes: 1
+  projectName: where-for-dinner
+  serviceNamespace: service-instances
+  workloadNamespace: workloads
